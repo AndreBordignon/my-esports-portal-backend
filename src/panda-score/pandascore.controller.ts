@@ -13,6 +13,7 @@ export class PandaScoreController {
 
   @Get('teams/:slug/matches')
   getTeamMatches(@Param() params?: any): any {
+    console.log(params);
     return this.pandaScoreService.getTeamMatches(params.slug);
   }
 }
