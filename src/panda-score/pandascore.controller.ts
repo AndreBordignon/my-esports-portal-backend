@@ -1,4 +1,4 @@
-import { Controller, Get, Body, Query } from '@nestjs/common';
+import { Controller, Get, Body, Query, Param } from '@nestjs/common';
 import { PandaScoreService } from './panda-score.service';
 
 @Controller('pandascore')
@@ -9,5 +9,10 @@ export class PandaScoreController {
   getAllTeams(@Query() params?: any): any {
     console.log(params);
     return this.pandaScoreService.getTeams(params);
+  }
+
+  @Get('teams/:slug/matches')
+  getTeamMatches(@Param() params?: any): any {
+    return this.pandaScoreService.getTeamMatches(params.slug);
   }
 }

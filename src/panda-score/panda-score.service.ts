@@ -31,4 +31,16 @@ export class PandaScoreService {
       })
       .pipe(map((response) => response.data));
   }
+
+  getTeamMatches(slug?: string): Observable<any> {
+    const url = `https://api.pandascore.co/teams/${slug}/matches`;
+
+    return this.httpService
+      .get(url, {
+        headers: {
+          Authorization: `Bearer kn4JnhL0DEsvVvb0yOL1WEwzJ6rI2KF-dMPu8rnXfb6CboHjRmU`,
+        },
+      })
+      .pipe(map((response) => response.data));
+  }
 }
